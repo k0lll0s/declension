@@ -10,25 +10,21 @@ function App() {
   const [result, setResult] = useState('')
 
   const declensionWord = async () => {
-    if (decWord) {
-      let rawData = '';
-      await axios.get(`https://ws3.morpher.ru/russian/declension?s=${decWord}`)
-        .then(response => rawData = response.data)
-        .catch(reject => console.log(reject.message))
-      const parser = new XMLParser();
-      const data = parser.parse(rawData).xml;
-      for (let key in data) {
-        if(key === selectCase) setResult(data[key]);
-      }
-      if(selectCase === 'И') setResult(decWord);
+    if (!decWord) return;
+    const {data} = await axios.get(`https://ws3.morpher.ru/russian/declension?s=${decWord}`)
+    const parser = new XMLParser();
+    const parsedData = parser.parse(data).xml;
+    for (let key in parsedData) {
+      if (key === selectCase) setResult(parsedData[key]);
     }
+    if (selectCase === 'И') setResult(decWord);
   }
 
   useMemo(() => {
-    if(!decWord) {
+    if (!decWord) {
       setSelectCase(null);
     }
-    if(selectCase) {
+    if (selectCase) {
       declensionWord();
     }
   }, [decWord, selectCase])
