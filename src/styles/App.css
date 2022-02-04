@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: grid;
+    justify-content: center;
+}
+
+.App {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 800px;
+    height: auto;
+}
+
+.Result {
+    margin: 5px 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    font-family: "Segoe UI Black";
+}
+
+.Form {
+    display: grid;
+    justify-content: center;
+}
+
+.Input {
+    margin: 5px;
+    padding: 5px 15px;
+    border: 2px solid burlywood;
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+}
+
+.Select {
+    margin: 5px;
+    padding: 5px 15px;
+    border: 2px solid burlywood;
+    width: 45%;
+    height: 30px;
+    font-size: 16px;
+}
+
+.Title {
+    margin-top: 15%;
+    margin-bottom: 5%;
+    padding: 5px;
+    text-align: center;
+    font-family: "Segoe UI Black";
+}
+
